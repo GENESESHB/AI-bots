@@ -1,0 +1,125 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+  background-color: #f5f7f9;
+  color: #333;
+  height: 200vh; /* test scroll */
+}
+
+/* --- Bouton Toggle --- */
+#chat-toggle {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: #27ae60;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  font-size: 28px;
+  cursor: pointer;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+  transition: background 0.3s, transform 0.2s;
+  z-index: 1000;
+}
+#chat-toggle:hover {
+  background: #219653;
+  transform: scale(1.1);
+}
+
+/* --- Container du chat --- */
+.chat-container {
+  position: fixed;
+  bottom: 90px;
+  right: 20px;
+  width: 350px;
+  max-height: 500px;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.2);
+  display: none;
+  flex-direction: column;
+  overflow: hidden;
+  animation: slideIn 0.3s ease-out;
+  z-index: 999;
+}
+@keyframes slideIn {
+  from { transform: translateX(100%); opacity: 0; }
+  to { transform: translateX(0); opacity: 1; }
+}
+
+.chat-header {
+  background: linear-gradient(135deg, #d35400, #e67e22);
+  color: white;
+  padding: 12px;
+  font-size: 1.2rem;
+  text-align: center;
+}
+
+.chat-box {
+  flex: 1;
+  padding: 15px;
+  overflow-y: auto;
+  background: #fafafa;
+}
+
+.user-message, .bot-message {
+  margin-bottom: 10px;
+  padding: 10px 14px;
+  border-radius: 18px;
+  max-width: 80%;
+}
+.user-message {
+  background: #3498db;
+  color: white;
+  margin-left: auto;
+  border-bottom-right-radius: 5px;
+}
+.bot-message {
+  background: #e9ebee;
+  color: #333;
+  margin-right: auto;
+  border-bottom-left-radius: 5px;
+}
+
+/* Input */
+.input-container {
+  display: flex;
+  padding: 10px;
+  border-top: 1px solid #eee;
+  background: white;
+}
+.input-container input {
+  flex: 1;
+  padding: 10px 15px;
+  border: 1px solid #ccc;
+  border-radius: 24px;
+  outline: none;
+  font-size: 1rem;
+}
+.input-container button {
+  background: #27ae60;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 42px;
+  height: 42px;
+  margin-left: 10px;
+  cursor: pointer;
+  font-size: 18px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: background 0.3s, transform 0.2s;
+}
+.input-container button:hover {
+  background: #219653;
+  transform: scale(1.05);
+}
+
