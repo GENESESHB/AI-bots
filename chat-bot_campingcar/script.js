@@ -44,7 +44,7 @@
     { keywords: ["communauté", "forum", "entraide", "avis"], reply: "Rejoignez notre communauté de passionnés ! 🤝 Le forum est l'endroit parfait pour poser vos questions, partager votre expérience et lire les avis en temps réel sur les conditions des routes et des spots de bivouac." },
     { keywords: ["sécurité", "conduire", "nuit", "conseils"], reply: "Voyager en sécurité est notre priorité. 🛡️ Nous prodiguons des conseils essentiels pour conduire au Maroc, choisir ses spots de nuit, et respecter les règles locales pour un voyage serein et mémorable." }
   ];
-  
+
 
   const chatBox = document.getElementById("chat-box");
 
@@ -69,17 +69,26 @@
     const matchedReplies = [];
 
     // Bloc spécial marketing désert
-    if (text.includes("désert") || text.includes("sahara") || text.includes("merzouga") || text.includes("dunes")) {
-      if (text.includes("circuit") || text.includes("itinéraire") || text.includes("route")) {
-        return "🚐 Nous avons conçu 3 circuits exceptionnels dans le désert ! Notre 'Expérience Désert Complet' de 7 jours est la plus demandée. 👉 Plus d'infos : https://maroccampingcar.com/";
-      }
-      if (text.includes("prix") || text.includes("tarif") || text.includes("coût")) {
-        return "💰 Nos circuits désert commencent à 490€ (4 jours) jusqu'à 1200€ (10 jours). Promo -15% cette semaine ! 👉 https://maroccampingcar.com/";
-      }
-      if (text.includes("réservation") || text.includes("réserver")) {
-        return "🎉 Pour réserver votre aventure : 1) Cliquez sur 'Réserver' sur notre site 👉 https://maroccampingcar.com/reservation 2) Appelez +212 670 524 652. Il reste quelques véhicules disponibles !";
-      }
+    // Circuit 7 jours - Expérience Désert Complet
+    if (text.includes("7 jours") || text.includes("expérience") || text.includes("complet")) {
+      return "🌍 Voyagez au cœur du Sahara avec notre **Circuit Expérience Désert Complet (7 jours)**. Ce parcours vous emmène à travers l’Atlas, les vallées verdoyantes et jusqu’aux dunes dorées de Merzouga. 🐪 Profitez d’excursions à dos de dromadaire, de soirées berbères autour du feu et de nuits magiques sous les étoiles en bivouac. 💰 Prix : environ 850–950€.\n\n📞 Réservation & contact :\n- Téléphone / WhatsApp : +212 670-524652\n- Email : contact@maroccampingcar.com\n- Réservations en ligne : https://maroccampingcar.com/reservez-votre-camping-car-au-maroc/\n📍 Adresse : Marrakech, Maroc";
     }
+
+    // Circuit 4 jours - Découverte
+    if (text.includes("4 jours") || text.includes("court") || text.includes("découverte")) {
+      return "🚐 Envie d’une première immersion dans le Sahara ? Optez pour notre **Circuit Désert Découverte (4 jours)**. Au programme : traversée de l’Atlas, découverte de la vallée du Dadès et arrivée aux impressionnantes dunes de Merzouga. 🌅 Idéal pour un court séjour, vous vivrez déjà la magie du désert en seulement 4 jours. 💰 Prix : à partir de 490€.\n\n📞 Réservation & contact :\n- Téléphone / WhatsApp : +212 670-524652\n- Email : contact@maroccampingcar.com\n- Réservations en ligne : https://maroccampingcar.com/reservez-votre-camping-car-au-maroc/\n📍 Adresse : Marrakech, Maroc";
+    }
+
+    // Circuit 10 jours - Aventure Totale
+    if (text.includes("10 jours") || text.includes("long") || text.includes("aventure")) {
+      return "✨ Pour les passionnés de voyage, notre **Circuit Désert Aventure Totale (10 jours)** offre une immersion complète dans le Sahara. Vous explorerez des oasis secrètes, des kasbahs anciennes et des villages berbères authentiques. 🌌 Vivez la culture locale, profitez de bivouacs de luxe et de riads traditionnels. 💰 Prix : jusqu’à 1200€.\n\n📞 Réservation & contact :\n- Téléphone / WhatsApp : +212 670-524652\n- Email : contact@maroccampingcar.com\n- Réservations en ligne : https://maroccampingcar.com/reservez-votre-camping-car-au-maroc/\n📍 Adresse : Marrakech, Maroc";
+    }
+
+    // Bloc prix / tarifs
+    if (text.includes("prix") || text.includes("tarif") || text.includes("coût")) {
+      return "💰 Nos circuits désert commencent à **490€** (4 jours) et vont jusqu’à **1200€** (10 jours). 🔥 Promo spéciale : -15% sur toutes les réservations cette semaine !\n\n📞 Réservation & contact :\n- Téléphone / WhatsApp : +212 670-524652\n- Email : contact@maroccampingcar.com\n- Réservations en ligne : https://maroccampingcar.com/reservez-votre-camping-car-au-maroc/\n📍 Adresse : Marrakech, Maroc";
+    }
+
 
     // Recherche dans base
     for (let ans of answers) {

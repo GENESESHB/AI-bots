@@ -82,7 +82,7 @@ body {
   border-bottom-right-radius: 5px;
 }
 .bot-message {
-  background: #e9ebee;
+  background: none;
   color: #333;
   margin-right: auto;
   border-bottom-left-radius: 5px;
