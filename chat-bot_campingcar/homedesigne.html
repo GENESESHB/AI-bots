@@ -1,0 +1,1285 @@
+ <style>
+        /* Reset and Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            color: #333;
+            line-height: 1.6;
+            background-color: #f9f9f9;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+
+        .btn {
+            display: inline-block;
+            background-color: #c19b76;
+            color: white;
+            padding: 12px 25px;
+            border-radius: 4px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            background-color: #a8825f;
+            transform: translateY(-2px);
+        }
+
+        section {
+            padding: 60px 0;
+        }
+
+        h1, h2, h3, h4 {
+            color: #2c3e50;
+            margin-bottom: 15px;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('http://trekdesertmorocco.com/wp-content/uploads/2025/09/caption-2-2.webp');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            text-align: center;
+            padding: 120px 0;
+            margin-top: -100px;
+            height: 700px;
+        }
+
+        .hero h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            color: white;
+            margin-top: 200px;
+        }
+
+        .hero p {
+            font-size: 20px;
+            max-width: 700px;
+            margin: 0 auto 30px;
+        }
+
+        /* section one */
+
+        .container{width:min(90%, var(--container)); margin-inline:auto;}
+        img{display:block; max-width:100%; height:auto;}
+
+        /* ===== Section Wrapper with soft arc background ===== */
+        .tours-hero{
+        position: relative;
+        background: var(--bg);
+        overflow: hidden;
+        }
+.tours-hero__wrap{
+  position: relative;
+  padding: 48px 0 56px;
+}
+.tours-hero__wrap::before{
+  content:"";
+  position: absolute;
+  inset: -30% -10% auto -20%;
+  height: 140%;
+  background:
+    radial-gradient(1200px 600px at 45% 20%, rgba(255, 115, 0, .04), transparent 60%),
+    radial-gradient(800px 400px at 55% 45%, rgba(255, 115, 0, .03), transparent 60%);
+  pointer-events:none;
+}
+
+/* ===== Vertical Rail Label ===== */
+.tours-hero__rail{
+  position: absolute;
+  left: 24px;
+  top: 0;
+  bottom: 0;
+  display: grid;
+  align-items: center;
+  border-right: 1px solid #efefef;
+}
+.tours-hero__rail span{
+  writing-mode: vertical-rl;
+  transform: rotate(180deg);
+  letter-spacing: .08em;
+  font-size: 20px;
+  color: #ef4d3c;
+  font-weight: 600;
+}
+
+/* ===== Grid ===== */
+.tours-hero__grid{
+  display: grid;
+  grid-template-columns: 1.1fr 1fr;
+  gap: 56px;
+  align-items: center;
+}
+
+/* ===== Left: text ===== */
+.tours-hero__title{
+  font-size: clamp(28px, 3.2vw, 40px);
+  line-height: 1.15;
+  color: var(--ink);
+  margin: 6px 0 18px;
+  font-weight: 700;
+}
+.tours-hero__lead{
+  color: var(--muted);
+  font-size: 16.5px;
+  line-height: 1.8;
+  max-width: 62ch;
+}
+.tours-hero__lead strong{color: #000; font-weight: 700;}
+
+.tours-hero__cta{
+  display:flex;
+  align-items:center;
+  gap: 18px;
+  margin-top: 22px;
+}
+.btn{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  height: 48px;
+  padding: 0 22px;
+  border-radius: 13px;
+  font-weight: 600;
+  text-decoration:none;
+  transition: transform .12s ease, box-shadow .12s ease;
+}
+.btn--primary{
+  background:#ff6148;
+  color:#fff;
+  box-shadow: 0 8px 24px rgba(255, 97, 72, .25);
+}
+.btn--primary:hover{
+  transform: translateY(-1px);
+  box-shadow: 0 10px 28px rgba(255, 97, 72, .32);
+}
+
+.tours-hero__phone{
+  display:flex; align-items:center; gap:10px;
+  color:#111;
+  font-weight:600;
+}
+.tours-hero__phone a{color:inherit;}
+.tours-hero__phone-icon{font-size:18px; line-height:1;}
+
+/* ===== Right: images ===== */
+.tours-hero__right{
+  display:grid;
+  grid-template-columns: 1fr .64fr;
+  gap: 24px;
+}
+.tours-hero__card{
+  position: relative;
+  border-radius: var(--radius);
+  background: var(--card);
+  overflow: hidden;
+  box-shadow: var(--shadow);
+}
+.tours-hero__card img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.tours-hero__card--main{
+  aspect-ratio: 4 / 5;      /* Tall main image */
+}
+.tours-hero__card--tall{
+  aspect-ratio: 3 / 5;      /* Narrow right image */
+}
+
+/* Badge overlay */
+.tours-hero__badge{
+  position:absolute;
+  right: 18px;
+  bottom: 18px;
+  width: 20px;   /* adjust to your badge asset */
+  height: 20px;
+  filter: drop-shadow(0 6px 16px rgba(0,0,0,.2));
+}
+.tours-hero__badge1 img{
+    height: 20%;
+    width: 20%;
+}
+/* ===== Responsive ===== */
+@media (max-width: 1100px){
+  .tours-hero__grid{grid-template-columns: 1fr; gap: 36px;}
+  .tours-hero__right{grid-template-columns: 1fr 1fr;}
+  .tours-hero__rail{display:none;}
+}
+@media (max-width: 680px){
+  .tours-hero__right{grid-template-columns: 1fr; gap:16px;}
+  .tours-hero__badge{width: 120px;}
+}
+        /* Features Section */
+        .features {
+            background-color: #f9f9f9;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .feature-card {
+            background-color: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .feature-card i {
+            font-size: 40px;
+            color: #c19b76;
+            margin-bottom: 20px;
+        }
+
+        .feature-card h3 {
+            font-size: 22px;
+            margin-bottom: 15px;
+        }
+
+        /* Tours Section */
+        .tours {
+            background-color: white;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .section-title h2 {
+            font-size: 36px;
+            position: relative;
+            display: inline-block;
+            padding-bottom: 15px;
+        }
+
+        .section-title h2:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background-color: #c19b76;
+        }
+
+        .tours-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .tour-card {
+            background-color: #f9f9f9;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+
+        .tour-image {
+            height: 200px;
+            background-size: cover;
+            background-position: center;
+        }
+
+        .tour-content {
+            padding: 20px;
+        }
+
+        .tour-title {
+            font-size: 20px;
+            margin-bottom: 10px;
+        }
+
+        .tour-meta {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 15px;
+            font-size: 14px;
+            color: #666;
+        }
+
+        .tour-price {
+            font-size: 22px;
+            font-weight: 700;
+            color: #c19b76;
+            margin-bottom: 15px;
+        }
+
+        .view-more {
+            text-align: center;
+            margin-top: 40px;
+        }
+
+        /* Blogs Section */
+        .blogs {
+            background-color: #f9f9f9;
+        }
+
+        .blogs-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .blog-card {
+            background-color: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+
+        .blog-image {
+            height: 200px;
+            background-size: cover;
+            background-position: center;
+        }
+
+        .blog-content {
+            padding: 20px;
+        }
+
+        .blog-category {
+            display: inline-block;
+            background-color: #e8f4f8;
+            color: #2c3e50;
+            padding: 5px 10px;
+            border-radius: 4px;
+            font-size: 12px;
+            margin-bottom: 10px;
+        }
+
+        .blog-title {
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
+
+        .blog-excerpt {
+            color: #666;
+            margin-bottom: 15px;
+            font-size: 14px;
+        }
+
+        .read-more {
+            color: #c19b76;
+            font-weight: 600;
+            font-size: 14px;
+        }
+
+        /* FAQ Section */
+        .faq {
+            background-color: white;
+        }
+
+        .faq-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .faq-item {
+            margin-bottom: 20px;
+            border: 1px solid #eee;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .faq-question {
+            padding: 20px;
+            background-color: #f9f9f9;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: 600;
+        }
+
+        .faq-answer {
+            padding: 0 20px;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease, padding 0.3s ease;
+        }
+
+        .faq-item.active .faq-answer {
+            padding: 20px;
+            max-height: 500px;
+        }
+
+        .faq-contact {
+            text-align: center;
+            margin-top: 40px;
+            padding: 40px;
+            background-color: #f9f9f9;
+            border-radius: 8px;
+        }
+
+        /* trips advisor backround */
+        /* ===== Background collage hero ===== */
+.newsletter-join {
+  position: relative;
+  background: url("images/morocco-collage.jpg") center/cover no-repeat;
+  color: #fff;
+  text-align: center;
+  padding: 120px 20px;  /* adjust for desired height */
+}
+.newsletter-join__overlay {
+  position: relative;
+  background: var(--overlay-dark);
+  inset: 0;
+  padding: 60px 0;
+}
+.newsletter-join__title {
+  font-size: clamp(28px, 3vw, 42px);
+  font-weight: 700;
+  margin-bottom: 12px;
+}
+.newsletter-join__subtitle {
+  font-size: 22px;
+  line-height: 1.6;
+  max-width: 640px;
+  margin: 0 auto;
+  color: #000000;
+  font-size: large;
+  font-weight: 700;
+}
+
+/* ===== Reviews strip ===== */
+.reviews-strip {
+  background: var(--brand-light);
+  text-align: center;
+  padding: 70px 20px;
+}
+.reviews-strip__title {
+  font-size: clamp(22px, 2.6vw, 34px);
+  font-weight: 600;
+  margin-bottom: 28px;
+  color: #111;
+}
+.reviews-strip__badge a {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 28px;
+  border: 2px solid #000;
+  border-radius: 40px;
+  font-weight: 600;
+  color: #000;
+  text-decoration: none;
+}
+.reviews-strip__badge a:hover {
+  background: #fff;
+}
+.tripadvisor-icon {
+  background: url("http://trekdesertmorocco.com/wp-content/uploads/2025/09/tripadvisor-icon.webp") no-repeat center/contain;
+  display: inline-block;
+  width: 30px;
+  height: 30px;
+  text-indent: -9999px; /* hide text if using SVG */
+}
+.rating-dots {
+  color: #00af87;
+  letter-spacing: 2px;
+}
+.reviews-count {
+  font-size: 16px;
+}
+/* CARDE REVIEW */
+/* ===== Reviews Cards ===== */
+.reviews-cards{
+  background:#e9f9ef; /* light mint (like screenshot) */
+  padding: 36px 0 80px; /* sits under the badge strip */
+}
+.reviews-cards__grid{
+  display:grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 32px;
+}
+
+/* Card */
+.review-card{
+  background:#fff;
+  border-radius: 18px;
+  box-shadow: 0 10px 28px rgba(16,24,40,.08);
+  padding: 28px;
+  position: relative;
+}
+.review-card::after{
+  /* top-right decorative quotes */
+  content:"\201D\201D";
+  position:absolute;
+  top: 10px;
+  right: 18px;
+  color:#cfcfcf;
+  font-size: 52px;
+  line-height: 1;
+  font-weight: 700;
+  letter-spacing: -2px;
+}
+
+/* Stars */
+.review-card__stars{
+  display:flex;
+  gap:6px;
+  margin-bottom: 16px;
+  color:#ff3d2f; /* red stars */
+  font-size: 18px;
+}
+
+/* Title + text */
+.review-card__title{
+  margin: 8px 0 10px;
+  font-size: 20px;
+  font-weight: 700;
+  color:#0f172a;
+}
+.review-card__text{
+  color:#4b5563;
+  line-height:1.8;
+  font-size: 15.5px;
+}
+
+/* Author row */
+.review-card__author{
+  margin-top: 22px;
+  display:flex;
+  align-items:center;
+  gap: 14px;
+}
+.review-card__author img{
+  width:56px; height:56px; border-radius:50%;
+  object-fit:cover;
+}
+.review-card__name{
+  font-weight:700; color:#0f172a;
+}
+.review-card__meta{
+  font-size:14px; color:#6b7280;
+}
+/* Responsive */
+@media (max-width: 1200px){
+  .reviews-cards__grid{grid-template-columns: repeat(3, 1fr);}
+}
+@media (max-width: 900px){
+  .reviews-cards__grid{grid-template-columns: repeat(2, 1fr);}
+}
+@media (max-width: 560px){
+  .reviews-cards__grid{grid-template-columns: 1fr;}
+      .hero {
+          height: 500px;
+      }
+      .hero h1{margin-top: 10px;}
+} 
+
+        /* Responsive Styles */
+        @media (max-width: 768px) {
+           .hero h1 {
+                font-size: 36px;
+            }
+
+            .hero p {
+                font-size: 18px;
+            }
+        }
+        .newsletter-join {
+           /* Replace with your own image path */
+           background: url("http://trekdesertmorocco.com/wp-content/uploads/2025/09/Beige-and-Red-Vintage-Travel-Photo-Collage-Facebook-Cover.webp") center center / cover no-repeat;
+           position: relative;
+           color: #fff;          /* white text for contrast */
+           text-align: center;
+        }
+        .newsletter-join__title {
+          display: inline-block;          /* shrink background to the text width */
+          background-color: #c19b76;      /* your orange highlight */
+          color: #fff;                    /* text color on top of the highlight */
+          padding: 0.25em 0.6em;          /* a little breathing space */
+          border-radius: 6px;             /* optional rounded corners */
+          font-size: clamp(28px, 3vw, 42px);
+          font-weight: 700;
+          margin-bottom: 12px;
+        }
+    /* bivoucs style */
+    /* ====== Section Wrapper ====== */
+.popular-section{
+  background:#ffffff;
+  padding:60px 6vw;
+  text-align:center;
+}
+.popular-section h2{
+  font-size:2rem;
+  margin:0 0 10px;
+}
+.popular-section p.lead{
+  color:#666;
+  max-width:560px;
+  margin:0 auto 40px;
+  line-height:1.6;
+}
+
+/* ====== Cards Grid ====== */
+.tour-grid{
+  display:grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap:30px;
+  max-width:1200px;
+  margin:0 auto;
+}
+
+/* ====== Single Card ====== */
+.tour-card{
+  background:#fff;
+  border-radius:16px;
+  overflow:hidden;
+  box-shadow:0 8px 20px rgba(0,0,0,.08);
+  text-align:left;
+  display:flex;
+  flex-direction:column;
+  transition:transform .25s;
+}
+.tour-card:hover{ transform:translateY(-4px); }
+
+.tour-image{
+  position:relative;
+  width:100%;
+  height:200px;
+  overflow:hidden;
+}
+.tour-image img{
+  width:100%; height:100%;
+  object-fit:cover;
+  display:block;
+}
+.tour-fav{
+  position:absolute; top:14px; right:14px;
+  background:rgba(255,255,255,.9);
+  border-radius:50%;
+  width:34px; height:34px;
+  display:grid; place-items:center;
+  cursor:pointer;
+  font-size:18px;
+}
+
+/* ====== Card Content ====== */
+.tour-content{
+  padding:18px 20px 22px;
+  display:flex;
+  flex-direction:column;
+  justify-content:space-between;
+  flex:1;
+}
+.tour-meta{
+  font-size:14px;
+  color:#555;
+  margin-bottom:6px;
+  display:flex;
+  align-items:center;
+  gap:8px;
+}
+.tour-meta .rating{
+  color:#ff8a05;
+  font-weight:600;
+}
+.tour-title{
+  font-size:16px;
+  font-weight:600;
+  margin:0 0 12px;
+  line-height:1.4;
+}
+.tour-price{
+  font-size:14px;
+  color:#444;
+  margin-bottom:14px;
+}
+.tour-price strong{
+  font-size:15px;
+  color:#000;
+}
+
+/* ====== Book Button ====== */
+.book-btn{
+  display:inline-block;
+  background:#c19b76;
+  color:#fff;
+  padding:10px 20px;
+  border-radius:30px;
+  text-decoration:none;
+  font-weight:600;
+  text-align:center;
+  transition:background .25s;
+}
+.book-btn:hover{ background:#e6ae77; }
+
+    </style>
+</head>
+<body>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="container">
+            <h1>Sahara Desert Tours in Morocco Tours</h1>
+            <p>Discover Morocco with expert-guided Sahara Desert Tours and Morocco Tours.</p>
+            <a href="https://trekdesertmorocco.com/trip-types/morocco-tours/from-casablanca/" class="btn">Explore Tours</a>
+        </div>
+    </section>
+
+    <section class="tours-hero">
+       <div class="tours-hero__wrap">
+         <!-- Vertical side label -->
+           <div class="tours-hero__rail" aria-hidden="true">
+               <span>EXPLORE MOROCCO TOURS FOR YOURSELF</span>
+           </div>
+
+            <!-- Content -->
+           <div class="tours-hero__content container">
+             <div class="tours-hero__grid">
+              <!-- Left: Text -->
+                <div class="tours-hero__left">
+                    <h2 class="tours-hero__title">Sahara Desert Tours &amp; Morocco Tours</h2>
+
+                    <p class="tours-hero__lead">
+                     Discover the magic of Morocco with our <strong>Sahara Desert Tours</strong> and tailor-made
+                     <strong>Morocco Tours</strong>. From Marrakech’s souks to the Sahara’s golden dunes, we create private journeys
+                     designed around your pace and interests. Travel with local experts and experience authentic culture, hidden gems,
+                     and warm Moroccan hospitality.
+                    </p>
+
+                    <div class="tours-hero__cta">
+                            <a class="btn btn--primary" href="https://trekdesertmorocco.com/contact-desert-maroc/">Contact Us</a>
+                            <div class="tours-hero__phone">
+                               <span class="tours-hero__phone-icon" aria-hidden="true">📞</span>
+                               <a href="tel:+212661437098">+212 661 437 098</a>
+                           </div>
+                    </div>
+               </div>
+
+                <!-- Right: Images -->
+               <div class="tours-hero__right">
+                 <figure class="tours-hero__card tours-hero__card--main">
+                    <img src="http://trekdesertmorocco.com/wp-content/uploads/2025/08/admin-ajax-16.webp" alt="Guide in the Sahara dunes" loading="lazy">
+                    <!-- Badge overlay (PNG/SVG). Replace with your asset or remove if not needed -->
+                 </figure>
+                 <figure class="tours-hero__card tours-hero__card--tall">
+                    <img src="http://trekdesertmorocco.com/wp-content/uploads/2025/09/jyoshankar_travelblogger_desertl.webp" alt="Traveler with camel in the dunes" loading="lazy">
+                 </figure>
+                </div>
+             </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features">
+        <div class="container">
+            <div class="features-grid">
+                <div class="feature-card">
+                    <i class="fas fa-map-marked-alt"></i>
+                    <h3>Customizable Morocco Tours & Sahara Desert Tours</h3>
+                    <p>Enjoy the freedom to travel your way with our tailor-made Morocco Tours and unforgettable Sahara Desert Tours. From Marrakech's lively souks to desert camps under the stars, every journey is designed to match your pace, interests, and style.</p>
+                </div>
+                <div class="feature-card">
+                    <i class="fas fa-users"></i>
+                    <h3>Local Experts with Deep Moroccan Knowledge</h3>
+                    <p>Our team in Morocco has years of experience guiding travelers through cities, mountains and deserts. With our Morocco Tours and authentic Sahara Desert Tours, you'll go beyond sightseeing to experience true Moroccan culture, hidden gems, and warm local hospitality.</p>
+                </div>
+                <div class="feature-card">
+                    <i class="fas fa-star"></i>
+                    <h3>Top Rated & Trusted by Global Travelers</h3>
+                    <p>We're proud to deliver 5-star service backed by real reviews. Travelers from the US, Europe, and beyond choose our Morocco Tours and Sahara Desert Tours for safe, seamless and unforgettable journeys rated for quality, reliability, and authentic experiences.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tours Section -->
+    <section class="tours" id="tours">
+        <div class="container">
+            <div class="section-title">
+                <h2>Our Popular Morocco Tours from Marrakech</h2>
+            </div>
+            <div class="tours-grid">
+                <div class="tour-card">
+                    <div class="tour-image" style="background-image: url('http://trekdesertmorocco.com/wp-content/uploads/2025/05/Djemaa_el_Fna.webp');"></div>
+                    <div class="tour-content">
+                        <h3 class="tour-title">Best 7 Days Morocco Tours From Marrakech To Fes (-25% off)</h3>
+                        <div class="tour-meta">
+                            <span><i class="far fa-clock"></i> 7 days</span>
+                            <span><i class="fas fa-user-friends"></i> Up to 20 people</span>
+                        </div>
+                        <div class="tour-price">Price negotiable – 25% off per person</div>
+                        <a href="https://trekdesertmorocco.com/trip-types/morocco-tours/from-marrakech-morocco-tours/" class="btn">Book Now</a>
+                    </div>
+                </div>
+                <div class="tour-card">
+                    <div class="tour-image" style="background-image: url('http://trekdesertmorocco.com/wp-content/uploads/2025/09/ait_benhaddou-1.webp');"></div>
+                    <div class="tour-content">
+                        <h3 class="tour-title">Best 6 Days Morocco Tours From Marrakech To rrachidia (-61% off)</h3>
+                        <div class="tour-meta">
+                            <span><i class="far fa-clock"></i> 6 days</span>
+                            <span><i class="fas fa-user-friends"></i> Up to 20 people</span>
+                        </div>
+                        <div class="tour-price">Price negotiable – 61% off per person</div>
+                        <a href="https://trekdesertmorocco.com/trip-types/morocco-tours/from-marrakech-morocco-tours/" class="btn">Book Now</a>
+                    </div>
+                </div>
+                <div class="tour-card">
+                    <div class="tour-image" style="background-image: url('http://trekdesertmorocco.com/wp-content/uploads/2025/08/admin-ajax-16.webp');"></div>
+                    <div class="tour-content">
+                        <h3 class="tour-title">Unforgettable 5 Days Morocco Tours From Marrakech To Merzouga</h3>
+                        <div class="tour-meta">
+                            <span><i class="far fa-clock"></i> 5 days</span>
+                            <span><i class="fas fa-user-friends"></i> Up to 20 people</span>
+                        </div>
+                        <div class="tour-price">Price negotiable – 47% off per person</div>
+                        <a href="https://trekdesertmorocco.com/trip-types/morocco-tours/from-marrakech-morocco-tours/" class="btn">Book Now</a>
+                    </div>
+                </div>
+            </div>
+            <div class="view-more">
+                <a href="https://trekdesertmorocco.com/trip-types/morocco-tours/" class="btn">View More Tours</a>
+            </div>
+        </div>
+    </section>
+    <!-- ===== tours from casablanca ====== -->
+    <section  style="background-color: #f5f0eb62;" class="tours" id="tours">
+        <div class="container">
+            <div class="section-title">
+                <h2>Our Popular Morocco Tours from Casablanca</h2>
+            </div>
+            <div class="tours-grid">
+                <div class="tour-card">
+                    <div class="tour-image" style="background-image: url('http://trekdesertmorocco.com/wp-content/uploads/2025/09/50ae3aa_1644014741517-casablanca.webp');"></div>
+                    <div class="tour-content">
+                        <h3 class="tour-title">10 Days Morocco Tours From Casablanca To Marzouga (-35% off)</h3>
+                        <div class="tour-meta">
+                            <span><i class="far fa-clock"></i> 10 days</span>
+                            <span><i class="fas fa-user-friends"></i> Up to 20 people</span>
+                        </div>
+                        <div class="tour-price">Price negotiable – 35% off per person</div>
+                        <a href="https://trekdesertmorocco.com/trip-types/morocco-tours/from-casablanca/" class="btn">Book Now</a>
+                    </div>
+                </div>
+                <div class="tour-card">
+                    <div class="tour-image" style="background-image: url('http://trekdesertmorocco.com/wp-content/uploads/2025/09/camel-caravan-at-sunset-reflecti.webp');"></div>
+                    <div class="tour-content">
+                        <h3 class="tour-title">8 Days Morocco Tours From Casablanca To Zagoura (-41% off)</h3>
+                        <div class="tour-meta">
+                            <span><i class="far fa-clock"></i> 8 days</span>
+                            <span><i class="fas fa-user-friends"></i> Up to 20 people</span>
+                        </div>
+                        <div class="tour-price">Price negotiable – 41% off per person</div>
+                        <a href="https://trekdesertmorocco.com/trip-types/morocco-tours/from-casablanca/" class="btn">Book Now</a>
+                    </div>
+                </div>
+                <div class="tour-card">
+                    <div class="tour-image" style="background-image: url('http://trekdesertmorocco.com/wp-content/uploads/2025/09/images.webp');"></div>
+                    <div class="tour-content">
+                        <h3 class="tour-title">Unforgettable 9 Days Morocco Tours From Casablanca to Tinghir</h3>
+                        <div class="tour-meta">
+                            <span><i class="far fa-clock"></i> 9 days</span>
+                            <span><i class="fas fa-user-friends"></i> Up to 20 people</span>
+                        </div>
+                        <div class="tour-price">Price negotiable – 37% off per person</div>
+                        <a href="https://trekdesertmorocco.com/trip-types/morocco-tours/from-casablanca/" class="btn">Book Now</a>
+                    </div>
+                </div>
+            </div>
+            <div class="view-more">
+                <a href="https://trekdesertmorocco.com/trip-types/morocco-tours/" class="btn">View More Tours</a>
+            </div>
+        </div>
+    </section>
+    <!-- === tangier tours ===== -->
+    <section class="tours" id="tours">
+        <div class="container">
+            <div class="section-title">
+                <h2>Our Popular Morocco Tours from Tangier</h2>
+            </div>
+            <div class="tours-grid">
+                <div class="tour-card">
+                    <div class="tour-image" style="background-image: url('http://trekdesertmorocco.com/wp-content/uploads/2025/09/33_6399d526cee90s_0-1.webp');"></div>
+                    <div class="tour-content">
+                        <h3 class="tour-title">7-Day Morocco Tour from Tangier to Marrakech via the Sahara Desert (-29% off)</h3>
+                        <div class="tour-meta">
+                            <span><i class="far fa-clock"></i> 7 days</span>
+                            <span><i class="fas fa-user-friends"></i> Up to 20 people</span>
+                        </div>
+                        <div class="tour-price">Price negotiable – 29% off per person</div>
+                        <a href="https://trekdesertmorocco.com/trip-types/morocco-tours/from-marrakech-morocco-tours/" class="btn">Book Now</a>
+                    </div>
+                </div>
+                <div class="tour-card">
+                    <div class="tour-image" style="background-image: url('http://trekdesertmorocco.com/wp-content/uploads/2023/01/Desert-Luxury-Camp.webp');"></div>
+                    <div class="tour-content">
+                        <h3 class="tour-title">10-Day Morocco Tour from Tangier to Marrakech via the Sahara Desert (-54% off)</h3>
+                        <div class="tour-meta">
+                            <span><i class="far fa-clock"></i> 10 days</span>
+                            <span><i class="fas fa-user-friends"></i> Up to 20 people</span>
+                        </div>
+                        <div class="tour-price">Price negotiable – 61% off per person</div>
+                        <a href="https://trekdesertmorocco.com/trip-types/morocco-tours/from-marrakech-morocco-tours/" class="btn">Book Now</a>
+                    </div>
+                </div>
+                <div class="tour-card">
+                    <div class="tour-image" style="background-image: url('http://trekdesertmorocco.com/wp-content/uploads/2025/09/saharadesertour_1-e1606936712182-1.webp');"></div>
+                    <div class="tour-content">
+                        <h3 class="tour-title">14-Day Grand Morocco Tour from Tangier – Full Experience</h3>
+                        <div class="tour-meta">
+                            <span><i class="far fa-clock"></i> 14 days</span>
+                            <span><i class="fas fa-user-friends"></i> Up to 12 people</span>
+                        </div>
+                        <div class="tour-price">Price negotiable – 47% off per person</div>
+                        <a href="https://trekdesertmorocco.com/trip-types/morocco-tours/from-marrakech-morocco-tours/" class="btn">Book Now</a>
+                    </div>
+                </div>
+            </div>
+            <div class="view-more">
+                <a href="https://trekdesertmorocco.com/trip-types/morocco-tours/" class="btn">View More Tours</a>
+            </div>
+        </div>
+    </section>
+    <!-- ===== bivoucs products ====--->
+    <section class="popular-section">
+  <h2>Bivouac Camps – Choose Your Perfect Night</h2>
+  <p class="lead">pick the ideal bivouac camp to
+    spend a magical night under the stars.</p>
+
+  <div class="tour-grid">
+
+    <!-- Card 1 -->
+    <div class="tour-card">
+      <div class="tour-image">
+        <img src="http://trekdesertmorocco.com/wp-content/uploads/2025/08/Trek-Desert-Morocco-CAmp-1-scaled-1.webp" alt="bivoucs camp in morocco with trekdesertmorocco">
+        <span class="tour-fav">♡</span>
+      </div>
+      <div class="tour-content">
+        <div>
+          <div class="tour-meta">
+            <span class="rating">★ 5 (1)</span> · Mazouga
+          </div>
+          <h3 class="tour-title">Votre Bivouac de Rêve au Désert avec Trek Desert Morocco</h3>
+          <p class="tour-price">from <strong>$60.00</strong> /person</p>
+        </div>
+        <a class="book-btn" href="https://www.booking.com/Share-FsKwlzq" target="_blank">Book Now</a>
+      </div>
+    </div>
+
+    <!-- Card 2 -->
+    <div class="tour-card">
+      <div class="tour-image">
+        <img src="http://trekdesertmorocco.com/wp-content/uploads/2025/08/Trek-Desert-Morocco-CAmp-21-600x540-1.webp" alt="bivoucs in morocco trek desrt morocco">
+        <span class="tour-fav">♡</span>
+      </div>
+      <div class="tour-content">
+        <div>
+          <div class="tour-meta">
+            <span class="rating">★ 4.5 (1)</span> · marzouga
+          </div>
+          <h3 class="tour-title">Expérience Bivouac Luxe & Tradition – Trek Desert Morocco</h3>
+          <p class="tour-price">from <strong>$50.00</strong> /person</p>
+        </div>
+        <a class="book-btn" href="https://www.booking.com/Share-FsKwlzq" target="_blank">Book Now</a>
+      </div>
+    </div>
+
+    <!-- Card 3 -->
+    <div class="tour-card">
+      <div class="tour-image">
+        <img src="http://trekdesertmorocco.com/wp-content/uploads/2025/09/722821800.webp" alt="camp desert morocco in marzouga">
+        <span class="tour-fav">♡</span>
+      </div>
+      <div class="tour-content">
+        <div>
+          <div class="tour-meta">
+            <span class="rating">★ 4.5 (1)</span> · marzouga
+          </div>
+          <h3 class="tour-title">Bivouac dans le Désert Marocain avec Trek Desert Morocco</h3>
+          <p class="tour-price">from <strong>$30.00</strong> /person</p>
+        </div>
+        <a class="book-btn" href="https://www.booking.com/Share-FsKwlzq" target="_blank">Book Now</a>
+      </div>
+    </div>
+
+    <!-- Card 4 -->
+    <div class="tour-card">
+      <div class="tour-image">
+        <img src="http://trekdesertmorocco.com/wp-content/uploads/2025/08/admin-ajax-22.webp" alt="camp trek desert morocco interieur designe ">
+        <span class="tour-fav">♡</span>
+      </div>
+      <div class="tour-content">
+        <div>
+          <div class="tour-meta">
+            <span class="rating">★ 0 (0)</span> · marzouga
+          </div>
+          <h3 class="tour-title">Trek Desert Morocco – Bivouac Confort au Cœur des Dunes</h3>
+          <p class="tour-price">from <strong>$220.00</strong> /person</p>
+        </div>
+        <a class="book-btn" href="https://www.booking.com/Share-FsKwlzq" target="_blank">Book Now</a>
+      </div>
+    </div>
+    <div class="view-more">
+                <a href="https://trekdesertmorocco.com/sahara-desert-luxury-bivouac/" class="btn">View Details</a>
+    </div
+  </div>
+</section>
+
+<!-- ======= Newsletter / Join the Journey Section ======= -->
+<section class="newsletter-join">
+  <div class="newsletter-join__overlay">
+    <div class="newsletter-join__inner container">
+      <h2 class="newsletter-join__title">Join trekdesert in morocco</h2>
+      <!-- <a href="#subscribe" class="btn btn--light">Subscribe Now</a> -->
+    </div>
+  </div>
+</section>
+
+<!-- Reviews strip just below -->
+<section class="reviews-strip">
+  <div class="container reviews-strip__inner">
+    <h3 class="reviews-strip__title">Our Happy Morocco Travellers</h3>
+    <div class="reviews-strip__badge">
+      <a href="https://www.tripadvisor.com/" target="_blank" rel="noopener">
+        <span class="tripadvisor-icon">Tripadvisor</span>
+        <span class="rating-dots">●●●●●</span>
+        <span class="reviews-count">218+ reviews</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ======= Reviews Cards Section ======= -->
+<section class="reviews-cards">
+  <div class="container">
+    <div class="reviews-cards__grid">
+      <!-- Card 1 -->
+      <article class="review-card">
+        <div class="review-card__top">
+          <div class="review-card__stars" aria-label="5 stars">
+            <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
+          </div>
+          <h4 class="review-card__title">An Amazing Trip in Morocco</h4>
+          <p class="review-card__text">
+            Morocco is a captivating blend of vibrant landscapes, rich history, and unforgettable adventures.
+            With our carefully crafted <strong>Morocco tours</strong>, every moment feels unique and authentic.
+        </div>
+        <div class="review-card__author">
+          <img src="http://trekdesertmorocco.com/wp-content/uploads/2025/09/XMKC.webp" alt="Toni L avatar">
+          <div>
+            <div class="review-card__name">Toni L</div>
+            <div class="review-card__meta">Written 9 August 2025</div>
+          </div>
+        </div>
+      </article>
+
+      <!-- Card 2 -->
+      <article class="review-card">
+        <div class="review-card__top">
+          <div class="review-card__stars" aria-label="5 stars">
+            <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
+          </div>
+          <h4 class="review-card__title">12 Day Car Trip to Morocco</h4>
+          <p class="review-card__text">
+            Our 12–day journey through Morocco was an unforgettable adventure! Traveling with Yassin, an excellent guide,
+            and meeting warm local hosts made the trip truly special. From comfortable stays to authentic restaurant experiences,
+          </p>
+        </div>
+        <div class="review-card__author">
+          <img src="http://trekdesertmorocco.com/wp-content/uploads/2025/09/DSCF6958-3-1.webp" alt="angelcheang avatar">
+          <div>
+            <div class="review-card__name">angelcheang</div>
+            <div class="review-card__meta">Hong Kong, China10</div>
+          </div>
+        </div>
+      </article>
+
+      <!-- Card 3 -->
+      <article class="review-card">
+        <div class="review-card__top">
+          <div class="review-card__stars" aria-label="5 stars">
+            <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
+          </div>
+          <h4 class="review-card__title">Highly Recommended for Moroccan Tours</h4>
+          <p class="review-card__text">
+            I joined a 13–day adventure in May 2025, and it was far beyond expectations.
+            Our guide and driver, Mr. Hassan, shared authentic Moroccan and Berber culture, making the journey unforgettable.
+            From historic cities to breathtaking <strong>Sahara Desert tours</strong>
+          </p>
+        </div>
+        <div class="review-card__author">
+          <img src="http://trekdesertmorocco.com/wp-content/uploads/2025/09/travel-active-lifestyle-concept.webp" alt="Nat C avatar">
+          <div>
+            <div class="review-card__name">Nat C</div>
+            <div class="review-card__meta">Hong Kong, China10</div>
+          </div>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+    <!-- Blogs Section -->
+    <section class="blogs" id="blogs">
+        <div class="container">
+            <div class="section-title">
+                <h2>Our Popular Desert Tours Blogs</h2>
+            </div>
+            <div class="blogs-grid">
+                <div class="blog-card">
+                    <div class="blog-image" style="background-image: url('http://trekdesertmorocco.com/wp-content/uploads/2025/08/admin-ajax-2-1.webp');"></div>
+                    <div class="blog-content">
+                        <span class="blog-category">MOROCCO TOURS, TRAVEL TIPS</span>
+                        <h3 class="blog-title">Morocco Tours 2025: Why +90% of Travelers Choose Guided Trips</h3>
+                        <p class="blog-excerpt">Discover why guided tours offer the best way to experience Morocco's rich culture, history, and landscapes...</p>
+                        <a href="#" class="read-more">Read More <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                <div class="blog-card">
+                    <div class="blog-image" style="background-image: url('http://trekdesertmorocco.com/wp-content/uploads/2025/08/13_6399d3af3eb59s_0-e1749558365524.webp');"></div>
+                    <div class="blog-content">
+                        <span class="blog-category">MOROCCO TOURS, THINGS TO DO</span>
+                        <h3 class="blog-title">Why You Should Visit the Dades Valley | Morocco Tours (2025)</h3>
+                        <p class="blog-excerpt">Explore the stunning Dades Valley, known for its dramatic rock formations and traditional Berber villages...</p>
+                        <a href="#" class="read-more">Read More <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                <div class="blog-card">
+                    <div class="blog-image" style="background-image: url('http://trekdesertmorocco.com/wp-content/uploads/2025/08/Trek-Desert-Morocco-CAmp-21-600x540-1.webp');"></div>
+                    <div class="blog-content">
+                        <span class="blog-category">TRAVEL EXPERIENCES</span>
+                        <h3 class="blog-title">My Top 6-Day Morocco Tours Experience (2025)</h3>
+                        <p class="blog-excerpt">Follow one traveler's journey through Morocco's imperial cities and Sahara desert on a 6-day tour...</p>
+                        <a href="#" class="read-more">Read More <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="faq" id="faq">
+        <div class="container">
+            <div class="section-title">
+                <h2>Frequently Asked Questions</h2>
+                <p>Find quick answers to the most common questions about our tours, services, and booking process. We're here to make your Moroccan journey smooth and memorable.</p>
+            </div>
+            <div class="faq-container">
+                <div class="faq-item active">
+                    <div class="faq-question">
+                        How can I book a tour?
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Booking your dream adventure has never been easier. Whether you choose cultural Morocco tours or unforgettable Sahara Desert tours, our process is simple and worry-free. With 24/7 customer support, you'll always have assistance no matter your time zone. Enjoy flexible options like free cancellation and "reserve now, pay later" with no extra cost. Plus, every booking earns you rewards through our loyalty program — explore more, earn more, and redeem on future Morocco tours and Sahara Desert tours with Journey to Morocco.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        What is included in the tour package?
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Our tour packages typically include accommodation, transportation, guided tours, some meals, and entrance fees to attractions. Specific inclusions vary by tour, so please check the detailed itinerary for each package.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        What is the cancellation policy?
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>We offer free cancellation up to 30 days before your tour start date. Cancellations made between 15-30 days before the tour will receive a 50% refund. Cancellations made within 14 days of the tour start date are non-refundable.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        Are there any age restrictions for the tour?
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Most of our tours are suitable for all ages. However, some activities like camel trekking may have age restrictions. Children under 12 typically receive a discount. Please contact us for specific age-related questions about a particular tour.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+<script>
+  // Run after DOM is ready
+  document.addEventListener('DOMContentLoaded', () => {
+    // Mobile Menu Toggle (guard if button/nav don't exist)
+    const mobileBtn = document.querySelector('.mobile-menu-btn');
+    const navEl = document.querySelector('nav');
+    if (mobileBtn && navEl) {
+      mobileBtn.addEventListener('click', () => {
+        navEl.classList.toggle('active');
+      });
+    }
+
+    // FAQ Accordion (open/close; one open at a time)
+    const faqItems = document.querySelectorAll('.faq-item');
+    const faqQuestions = document.querySelectorAll('.faq-question');
+
+    faqQuestions.forEach((q) => {
+      q.addEventListener('click', () => {
+        const currentItem = q.parentElement;
+
+        // Close others
+        faqItems.forEach((item) => {
+          if (item !== currentItem) item.classList.remove('active');
+        });
+
+        // Toggle current
+        currentItem.classList.toggle('active');
+      });
+    });
+
+    // Smooth Scrolling for Anchor Links (guard + ignore "#")
+    document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+      anchor.addEventListener('click', function (e) {
+        const targetId = this.getAttribute('href');
+        if (!targetId || targetId === '#') return; // let normal links pass
+
+        const targetEl = document.querySelector(targetId);
+        if (!targetEl) return;
+
+        e.preventDefault();
+        window.scrollTo({
+          top: targetEl.offsetTop - 80,
+          behavior: 'smooth',
+        });
+
+        if (navEl) navEl.classList.remove('active');
+      });
+    });
+  });
+</script>
+
+</body>

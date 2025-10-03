@@ -1,0 +1,935 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Golden Stones Beaujolais Wine Tasting Tour</title>
+<style>
+/* ===== Scoped styles for Beaujolais Section ===== */
+.beaujolais-hero {
+  --bj-ink: #1b1b1b;
+  --bj-muted: #6b7280;
+  --bj-border: #e5e7eb;
+  --bj-shadow: 0 10px 30px rgba(0,0,0,.08);
+  --bj-radius: 18px;
+  padding: 24px 0 36px;
+  background: #fff;
+  color: var(--bj-ink);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.bj-container {
+  width: min(1200px, 92vw);
+  margin: 0 auto;
+}
+
+/* Title & meta */
+.bj-header .bj-title {
+  font-size: clamp(24px, 3vw, 38px);
+  margin-bottom: 10px;
+}
+
+.bj-meta {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 14px;
+  color: var(--bj-muted);
+}
+
+.bj-rating { color: #e11d48; font-weight: 600; }
+.bj-reviews { color: var(--bj-muted); }
+.bj-dot { opacity: .5; }
+.bj-actions {
+  margin-left: auto;
+  display: flex;
+  gap: 8px;
+}
+.bj-icon {
+  width: 34px; height: 34px;
+  border-radius: 50%;
+  border: 1px solid var(--bj-border);
+  background: #fff;
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+  transition: 0.15s ease;
+}
+.bj-icon:hover { background: #f9fafb; transform: translateY(-1px); }
+
+/* Gallery layout */
+.bj-gallery {
+  margin-top: 18px;
+  display: grid;
+  grid-template-columns: 1.4fr .9fr;
+  gap: 14px;
+}
+.bj-main {
+  display: block;
+  overflow: hidden;
+  border-radius: var(--bj-radius);
+  box-shadow: var(--bj-shadow);
+  aspect-ratio: 16/9;
+}
+.bj-main img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+}
+
+.bj-side {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+}
+.bj-side > img,
+.bj-tile-more {
+  border-radius: 14px;
+  overflow: hidden;
+  box-shadow: var(--bj-shadow);
+  aspect-ratio: 1/1;
+  object-fit: cover;
+}
+.bj-side img { width: 100%; height: 100%; object-fit: cover; }
+
+.bj-tile-more {
+  position: relative;
+}
+.bj-tile-more img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+}
+.bj-more {
+  position: absolute;
+  right: 10px;
+  bottom: 10px;
+  padding: 10px 14px;
+  border: none;
+  border-radius: 999px;
+  background: #fff;
+  box-shadow: 0 6px 18px rgba(0,0,0,.12);
+  font-weight: 600;
+  cursor: pointer;
+}
+
+/* Responsive */
+@media (max-width: 920px) {
+  .bj-gallery { grid-template-columns: 1fr; }
+}
+@media (max-width: 560px) {
+  .bj-gallery, .bj-side { gap: 10px; }
+  .bj-side { grid-template-columns: 1fr 1fr; }
+}
+/* why chose us style */
+/* ============ Scoped to .tdm-about only ============ */
+.tdm-about{
+  --ink:#1f2937;
+  --muted:#6b7280;
+  --brand: #c19b76;       /* CTA + accents */
+  --ring:#ffefe9;
+  --radius:28px;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  color:var(--ink);
+  background:#f9f9f9;
+  padding:72px min(6vw,72px);
+}
+.tdm-wrap{
+  display:grid;
+  grid-template-columns: 1.1fr 1fr;
+  gap:min(6vw,56px);
+  align-items:center;
+}
+
+/* ---- left text ---- */
+.tdm-kicker{
+  color:var(--brand);
+  text-transform:uppercase;
+  letter-spacing:.14em;
+  font-weight:700;
+  font-size:12px;
+  margin-bottom:10px;
+}
+.tdm-title{
+  font-size:clamp(28px,3.2vw,44px);
+  line-height:1.15;
+  margin:0 0 14px;
+}
+.tdm-lead{
+  color:var(--muted);
+  line-height:1.75;
+  margin:0 0 24px;
+}
+.tdm-cta{
+  display:flex; align-items:center; gap:16px; flex-wrap:wrap;
+}
+.tdm-btn{
+  background:var(--brand); color:#fff; border:0;
+  padding:12px 26px; border-radius:999px; cursor:pointer;
+  font-weight:700; letter-spacing:.2px;
+  box-shadow:0 10px 24px rgba(233,74,47,.22);
+}
+.tdm-btn:focus{ outline:3px solid var(--ring) }
+.tdm-phone{ font-weight:700 }
+
+/* ---- right visual block ---- */
+.tdm-visual{
+  position:relative;
+  min-height:420px;
+}
+
+/* triangle helper: use background-image for perfect cover */
+.tdm-tri{
+  position:absolute; inset:auto;
+  --w: 310px;              /* width control per triangle */
+  width:var(--w);
+  aspect-ratio: 1 / 1.25;  /* a bit taller than wide */
+  background:#ddd center/cover no-repeat;
+  box-shadow:0 20px 40px rgba(0,0,0,.16);
+  -webkit-clip-path: polygon(50% 0, 0 100%, 100% 100%); /* Triangle */
+  clip-path: polygon(50% 0, 0 100%, 100% 100%);
+  border-radius:8px; /* soft edge where anti-alias meets background */
+}
+
+/* big right triangle */
+.tdm-tri--big{
+  --w: 420px;
+  right:0; bottom: -18px;
+  transform:translateX(8%);
+  background-image:url("http://trekdesertmorocco.com/wp-content/uploads/2025/09/387458706.webp"); /* bridge / hike */
+}
+
+/* medium left triangle (slightly overlapped under) */
+.tdm-tri--mid{
+  --w: 320px;
+  left:4%; top:12%;
+  background-image:url("http://trekdesertmorocco.com/wp-content/uploads/2025/09/722821800.webp");  /* lake / boat */
+  z-index:1;
+}
+
+/* dotted flight path (SVG) */
+.tdm-path{
+  position:absolute; inset:0;
+  pointer-events:none;
+}
+.tdm-path svg{ width:100%; height:100%; }
+.tdm-path path{
+  fill:none; stroke:#9ca3af; stroke-width:2; stroke-dasharray:6 8;
+}
+
+/* tiny location pins */
+.tdm-pin{
+  position:absolute; width:22px; height:22px;
+  border:2px solid var(--brand); color:var(--brand);
+  border-radius:50% 50% 50% 0; transform:rotate(-45deg);
+  background:#fff;
+  display:grid; place-items:center;
+  box-shadow:0 6px 16px rgba(233,74,47,.15);
+}
+.tdm-pin::after{
+  content:''; width:6px; height:6px; background:var(--brand);
+  border-radius:50%;
+}
+
+/* pin positions relative to triangles */
+.tdm-pin--mid{ left:22%; top:8%; }
+.tdm-pin--big{ right:20%; top:6%; }
+
+/* responsive */
+@media (max-width: 1024px){
+  .tdm-visual{ min-height:380px; }
+  .tdm-tri--big{ --w:360px }
+  .tdm-tri--mid{ --w:280px }
+}
+@media (max-width: 860px){
+  .tdm-wrap{ grid-template-columns:1fr; }
+  .tdm-visual{
+    margin-top:12px; min-height:420px;
+  }
+  .tdm-tri--big{ right:50%; transform:translateX(52%); bottom:-8px }
+  .tdm-tri--mid{ left:50%; transform:translateX(-60%); top:6% }
+}
+@media (max-width: 520px){
+  .tdm-tri--big{ --w:300px }
+  .tdm-tri--mid{ --w:220px }
+}
+/* PRODUCTS STYLES BIVOUCS */
+/* ====== Section Wrapper ====== */
+.popular-section{
+  background:#ffffff;
+  padding:60px 6vw;
+  text-align:center;
+}
+.popular-section h2{
+  font-size:2rem;
+  margin:0 0 10px;
+}
+.popular-section p.lead{
+  color:#666;
+  max-width:560px;
+  margin:0 auto 40px;
+  line-height:1.6;
+}
+
+/* ====== Cards Grid ====== */
+.tour-grid{
+  display:grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap:30px;
+  max-width:1200px;
+  margin:0 auto;
+}
+
+/* ====== Single Card ====== */
+.tour-card{
+  background:#fff;
+  border-radius:16px;
+  overflow:hidden;
+  box-shadow:0 8px 20px rgba(0,0,0,.08);
+  text-align:left;
+  display:flex;
+  flex-direction:column;
+  transition:transform .25s;
+}
+.tour-card:hover{ transform:translateY(-4px); }
+
+.tour-image{
+  position:relative;
+  width:100%;
+  height:200px;
+  overflow:hidden;
+}
+.tour-image img{
+  width:100%; height:100%;
+  object-fit:cover;
+  display:block;
+}
+.tour-fav{
+  position:absolute; top:14px; right:14px;
+  background:rgba(255,255,255,.9);
+  border-radius:50%;
+  width:34px; height:34px;
+  display:grid; place-items:center;
+  cursor:pointer;
+  font-size:18px;
+}
+
+/* ====== Card Content ====== */
+.tour-content{
+  padding:18px 20px 22px;
+  display:flex;
+  flex-direction:column;
+  justify-content:space-between;
+  flex:1;
+}
+.tour-meta{
+  font-size:14px;
+  color:#555;
+  margin-bottom:6px;
+  display:flex;
+  align-items:center;
+  gap:8px;
+}
+.tour-meta .rating{
+  color:#ff8a05;
+  font-weight:600;
+}
+.tour-title{
+  font-size:16px;
+  font-weight:600;
+  margin:0 0 12px;
+  line-height:1.4;
+}
+.tour-price{
+  font-size:14px;
+  color:#444;
+  margin-bottom:14px;
+}
+.tour-price strong{
+  font-size:15px;
+  color:#000;
+}
+
+/* ====== Book Button ====== */
+.book-btn{
+  display:inline-block;
+  background:#c19b76;
+  color:#fff;
+  padding:10px 20px;
+  border-radius:30px;
+  text-decoration:none;
+  font-weight:600;
+  text-align:center;
+  transition:background .25s;
+}
+.book-btn:hover{ background:#e6ae77; }
+/* OUR COMINITY STYLE */
+
+  /* ===== Wave Stats Section ===== */
+  .wave-stats{
+    position:relative;
+    isolation:isolate;
+    color:var(--ink);
+  }
+  .wave-stats .bg{
+    position:relative;
+    min-height:60vh;
+    display:flex;
+    align-items:flex-end;
+    padding:90px clamp(16px,6vw,100px);
+    background:#000 center/cover no-repeat;
+    background-image:url('http://trekdesertmorocco.com/wp-content/uploads/2025/09/merzouga-desert-camp-1024x629-1.webp');
+  }
+  .wave-stats .bg::after{
+    content:"";
+    position:absolute; inset:0;
+    background:linear-gradient(180deg,rgba(0,0,0,.15) 0%, rgba(0,0,0,.45) 55%, rgba(0,0,0,.55) 100%);
+    z-index:-1;
+  }
+
+  /* Top & bottom waves */
+  .wave-top, .wave-btm{
+    position:absolute; left:0; width:100%; overflow:hidden; line-height:0;
+  }
+  .wave-top{ top:-1px; transform:scaleY(-1); }
+  .wave-btm{ bottom:-1px; }
+  .wave-top svg, .wave-btm svg{ display:block; width:calc(100% + 1px); height:80px; }
+  .wave-top path, .wave-btm path{ fill:#fff; }
+
+  /* ===== Bigger & bolder text with thin outline ===== */
+  .stats-wrap,
+  .stats-wrap * {
+    color:#fff;
+    -webkit-text-stroke:0.1px #000;   /* thin black outline */
+    text-shadow: -0.1px -0.1px 0 #000, 0.1px -0.1px 0 #000,
+                 -0.1px  0.1px 0 #000, 0.1px  0.1px 0 #000;
+    font-weight:600;
+  }
+
+  .stats-wrap{ max-width:1200px; width:100%; }
+  .kicker{
+    font-size:2.5rem;          /* bigger section title */
+    font-weight:700;
+    letter-spacing:.08em;
+    text-transform:uppercase;
+    margin-bottom:24px;
+  }
+  .stats{
+    display:flex;
+    gap:70px;                  /* more spacing between stats */
+    align-items:flex-start;
+    flex-wrap:wrap;
+  }
+  .stat{
+    position:relative;
+    padding-right:70px;
+  }
+  .stat:not(:last-child)::after{
+    content:"";
+    position:absolute;
+    right:30px;
+    top:8px;
+    bottom:8px;
+    width:1px;
+    background:rgba(255,255,255,.35);
+  }
+  .value{
+    font-size:clamp(48px,10vw,100px); /* larger numbers */
+    font-weight:900;
+    letter-spacing:.1em;
+    display:flex;
+    align-items:baseline;
+    gap:6px;
+  }
+  .suffix{
+    font-size:80%;
+    font-weight:900;
+  }
+  .label{
+    margin-top:10px;
+    font-size:1.2rem;          /* bigger label text */
+    font-weight:700;
+  }
+
+  @media (max-width:900px){
+    .stat{ padding-right:36px }
+    .stat:not(:last-child)::after{ right:12px }
+    .stats{ gap:36px }
+    .value{ font-size:clamp(40px,8vw,80px) }
+    .kicker{ font-size:2rem; }
+  }
+  @media (max-width:640px){
+    .stats{ flex-direction:column; gap:24px }
+    .stat{ padding-right:0 }
+    .stat::after{ display:none }
+  }
+  /* FAQS STYLE */
+  /* Section wrapper */
+  .faqbivouacs-section{padding:72px 6vw 40px; max-width:1100px; margin:0 auto;}
+  .faqbivouacs-eyebrow{color:#ff8800; text-transform:uppercase; letter-spacing:.14em; font-weight:700; font-size:22px; text-align:center;}
+  .faqbivouacs-title{font-size:clamp(26px,3.2vw,36px); text-align:center; margin:6px 0 8px;}
+  .faqbivouacs-sub{color:var(--muted); text-align:center; max-width:720px; margin:0 auto 26px;}
+
+  /* Grid: accordion + card */
+  .faqbivouacs-grid{display:grid; grid-template-columns: 1.3fr .9fr; gap:28px; align-items:start;}
+  @media (max-width: 900px){ .faqbivouacs-grid{ grid-template-columns: 1fr; } }
+
+  /* Search */
+  .faqbivouacs-search{position:sticky; top:0; background:#fff; padding:8px 0 14px; z-index:2;}
+  .faqbivouacs-search input{
+    width:100%; padding:12px 14px 12px 40px; border:1px solid var(--line); border-radius:10px; font-size:15px; outline:none;
+    background:
+      url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="%235b6778" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>')
+      no-repeat 12px 50% / 18px;
+  }
+
+  /* Accordion */
+  .faqbivouacs-accordion{border-top:1px solid var(--line); border-bottom:1px solid var(--line);}
+  .faqbivouacs-item{border-bottom:1px solid var(--line);}
+  .faqbivouacs-item:last-child{border-bottom:none;}
+  .faqbivouacs-btn{
+    width:100%; padding:18px 14px; text-align:left; background:#fff; border:0; font:600 16px/1.3 inherit; color:var(--ink);
+    display:flex; align-items:center; justify-content:space-between; cursor:pointer;
+  }
+  .faqbivouacs-btn .faqbivouacs-icon{
+    width:22px; height:22px; border:1px solid var(--line); border-radius:50%; display:grid; place-items:center;
+    color:var(--muted); flex:0 0 22px; margin-left:12px; font-weight:700;
+  }
+  .faqbivouacs-panel{max-height:0; overflow:hidden; transition:max-height .28s ease; background:#fff;}
+  .faqbivouacs-panel-inner{padding:0 14px 16px 14px; color:var(--muted); font-size:14px; line-height:1.7;}
+  .faqbivouacs-item.open .faqbivouacs-panel{max-height:220px;}
+  .faqbivouacs-item.open .faqbivouacs-icon{color:#ff8800; border-color:#ffd5cd;}
+  .faqbivouacs-item.open .faqbivouacs-icon::before{content:'–';}
+  .faqbivouacs-item:not(.open) .faqbivouacs-icon::before{content:'+';}
+
+  /* Help card */
+  .faqbivouacs-card{
+    background:var(--card); border:1px solid #e9f0f5; border-radius:var(--radius); padding:26px; text-align:center;
+  }
+  .faqbivouacs-card .faqbivouacs-emoji{font-size:38px; color:#fd8f00; display:block; margin-bottom:8px;}
+  .faqbivouacs-card h4{margin:4px 0 6px; font-size:18px;}
+  .faqbivouacs-card p{color:var(--muted); font-size:14px; line-height:1.7; margin:0 0 16px;}
+  .faqbivouacs-card .faqbivouacs-btnlink{
+    display:inline-block; background:var(--brand); color:#fff; border-radius:999px; padding:10px 18px; text-decoration:none; font-weight:700;
+  }
+
+  /* Bottom CTA */
+  .faqbivouacs-cta{ text-align:center; padding:46px 0 10px;}
+  .faqbivouacs-cta h3{font-size:clamp(22px,3vw,30px); margin:0 0 6px;}
+  .faqbivouacs-cta p{color:var(--muted); max-width:720px; margin:0 auto 14px;}
+  .faqbivouacs-cta .faqbivouacs-plan{
+    display:inline-block; background:var(--brand); color:#fff; padding:12px 22px; border-radius:999px; text-decoration:none; font-weight:700;
+  }
+  .faqbivouacs-cta .faqbivouacs-plan:hover{filter:brightness(.95);}
+
+</style>
+</head>
+<body>
+
+<section class="beaujolais-hero">
+  <div class="bj-container">
+
+    <!-- Title & Meta -->
+    <div class="bj-header">
+      <h1 class="bj-title">Sahara Desert Luxury Bivouac – Trek Desert Morocco</h1>
+      <div class="bj-meta">
+        <span class="bj-rating">★ 5 <span class="bj-reviews">(1 review)</span></span>
+        <span class="bj-dot">•</span>
+        <span class="bj-location">Morocco, Merzouga</span>
+        <div class="bj-actions">
+          <button class="bj-icon" aria-label="Share">⤴</button>
+          <button class="bj-icon" aria-label="Save">♡</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Gallery -->
+    <div class="bj-gallery">
+      <!-- Main image -->
+      <a class="bj-main" href="#">
+        <img src="http://trekdesertmorocco.com/wp-content/uploads/2025/08/Trek-Desert-Morocco-CAmp-1-scaled-2.webp"
+             alt="interieur designe for camp in desert  with trekdesertmorocco">
+      </a>
+
+      <!-- Side images -->
+      <div class="bj-side">
+        <img src="http://trekdesertmorocco.com/wp-content/uploads/2025/08/admin-ajax-10.webp" alt="bivoucs image with trekdesert">
+        <img src="http://trekdesertmorocco.com/wp-content/uploads/2025/08/admin-ajax-8.webp" alt="desert camp with trekdesert morocco">
+        <img src="http://trekdesertmorocco.com/wp-content/uploads/2025/08/admin-ajax-24-1.webp" alt="bivouc interieur image with trekdesertmorocco">
+        <div class="bj-tile-more">
+          <img src="http://trekdesertmorocco.com/wp-content/uploads/2025/08/admin-ajax-23.webp" alt="camp desert in morocco with trekdesertmorocco">
+          <button class="bj-more">All photos</button>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+<section class="tdm-about">
+  <div class="tdm-wrap">
+
+    <!-- LEFT: text -->
+    <div class="tdm-text">
+      <div class="tdm-kicker">Who We Are</div>
+      <h2 class="tdm-title">After Your Desert Journey, Choose Your Perfect Bivouac</h2>
+      <p class="tdm-lead">
+        After a day of camel trekking across the golden dunes, unwind in the heart of the Sahara.
+        With Trek Desert Morocco you can select the bivouac that matches your style—traditional Berber tents, 
+        luxury desert camps, or private star-lit hideaways.
+      </p>
+      <div class="tdm-cta">
+        <a class="tdm-btn" href="https://trekdesertmorocco.com/contact-desert-maroc/">Contact Us</a>
+        <span class="tdm-phone">+212 661 437 098</span>
+      </div>
+    </div>
+
+    <!-- RIGHT: triangles & path -->
+    <div class="tdm-visual">
+      <!-- dotted path -->
+      <div class="tdm-path" aria-hidden="true">
+        <svg viewBox="0 0 800 520" preserveAspectRatio="none">
+          <!-- gentle S curve across the canvas -->
+          <path d="M80,180 C220,70 360,320 520,210 S720,140 720,120"/>
+        </svg>
+      </div>
+
+      <!-- triangles (replace background-image URLs if you want) -->
+      <div class="tdm-tri tdm-tri--mid"></div>
+      <div class="tdm-tri tdm-tri--big"></div>
+
+      <!-- small pins -->
+      <span class="tdm-pin tdm-pin--mid" aria-hidden="true"></span>
+      <span class="tdm-pin tdm-pin--big" aria-hidden="true"></span>
+    </div>
+
+  </div>
+</section>
+<section class="popular-section">
+  <h2>Bivouac Camps – Choose Your Perfect Night</h2>
+  <p class="lead">pick the ideal bivouac camp to
+    spend a magical night under the stars.</p>
+
+  <div class="tour-grid">
+
+    <!-- Card 1 -->
+    <div class="tour-card">
+      <div class="tour-image">
+        <img src="http://trekdesertmorocco.com/wp-content/uploads/2025/08/Trek-Desert-Morocco-CAmp-1-scaled-1.webp" alt="bivoucs camp in morocco with trekdesertmorocco">
+        <span class="tour-fav">♡</span>
+      </div>
+      <div class="tour-content">
+        <div>
+          <div class="tour-meta">
+            <span class="rating">★ 5 (1)</span> · Phuket
+          </div>
+          <h3 class="tour-title">Elephant Jungle Sanctuary Half-Day Visit with Meal</h3>
+          <p class="tour-price">from <strong>$60.00</strong> /person</p>
+        </div>
+        <a class="book-btn" href="https://www.booking.com/Share-FsKwlzq" target="_blank">Book Now</a>
+      </div>
+    </div>
+
+    <!-- Card 2 -->
+    <div class="tour-card">
+      <div class="tour-image">
+        <img src="http://trekdesertmorocco.com/wp-content/uploads/2025/08/Trek-Desert-Morocco-CAmp-21-600x540-1.webp" alt="bivoucs in morocco trek desrt morocco">
+        <span class="tour-fav">♡</span>
+      </div>
+      <div class="tour-content">
+        <div>
+          <div class="tour-meta">
+            <span class="rating">★ 4.5 (1)</span> · Chiang Mai
+          </div>
+          <h3 class="tour-title">Doi Inthanon National Park Eco-Friendly Tour</h3>
+          <p class="tour-price">from <strong>$50.00</strong> /person</p>
+        </div>
+        <a class="book-btn" href="https://www.booking.com/Share-FsKwlzq" target="_blank">Book Now</a>
+      </div>
+    </div>
+
+    <!-- Card 3 -->
+    <div class="tour-card">
+      <div class="tour-image">
+        <img src="http://trekdesertmorocco.com/wp-content/uploads/2025/09/722821800.webp" alt="camp desert morocco in marzouga">
+        <span class="tour-fav">♡</span>
+      </div>
+      <div class="tour-content">
+        <div>
+          <div class="tour-meta">
+            <span class="rating">★ 4.5 (1)</span> · Bangkok
+          </div>
+          <h3 class="tour-title">Grand Palace, Wat Pho, and Wat Arun Guided Tour</h3>
+          <p class="tour-price">from <strong>$30.00</strong> /person</p>
+        </div>
+        <a class="book-btn" href="https://www.booking.com/Share-FsKwlzq" target="_blank">Book Now</a>
+      </div>
+    </div>
+
+    <!-- Card 4 -->
+    <div class="tour-card">
+      <div class="tour-image">
+        <img src="http://trekdesertmorocco.com/wp-content/uploads/2025/08/admin-ajax-22.webp" alt="camp trek desert morocco interieur designe ">
+        <span class="tour-fav">♡</span>
+      </div>
+      <div class="tour-content">
+        <div>
+          <div class="tour-meta">
+            <span class="rating">★ 0 (0)</span> · France
+          </div>
+          <h3 class="tour-title">Private Walking Tour with a Local</h3>
+          <p class="tour-price">from <strong>$220.00</strong> /person</p>
+        </div>
+        <a class="book-btn" href="https://www.booking.com/Share-FsKwlzq" target="_blank">Book Now</a>
+      </div>
+    </div>
+
+  </div>
+</section>
+<section class="wave-stats" id="community">
+  <div class="wave-top" aria-hidden="true">
+    <svg viewBox="0 0 1200 80" preserveAspectRatio="none">
+      <path d="M0,40 C150,70 350,10 600,25 C850,40 1050,85 1200,55 L1200,0 L0,0 Z"></path>
+    </svg>
+  </div>
+
+  <div class="bg">
+    <div class="stats-wrap">
+      <div class="kicker">Our Desert Community</div>
+      <div class="stats">
+        <div class="stat">
+          <div class="value">
+            <span class="count" data-target="150">0</span>
+            <span class="suffix"></span>
+          </div>
+          <div class="label">Luxury & Standard Bivouac Tents</div>
+        </div>
+
+        <div class="stat">
+          <div class="value">
+            <span class="count" data-target="12" data-suffix="K">0</span>
+            <span class="suffix"></span>
+          </div>
+          <div class="label">Guests Hosted</div>
+        </div>
+
+        <div class="stat">
+          <div class="value">
+            <span class="count" data-target="98" data-suffix="%">0</span>
+            <span class="suffix"></span>
+          </div>
+          <div class="label">5-Star Reviews</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="wave-btm" aria-hidden="true">
+    <svg viewBox="0 0 1200 80" preserveAspectRatio="none">
+      <path d="M0,55 C150,85 350,40 600,55 C850,70 1050,10 1200,40 L1200,80 L0,80 Z"></path>
+    </svg>
+  </div>
+</section>
+<section class="faqbivouacs-section" id="faqbivouacs">
+  <div class="faqbivouacs-eyebrow">FAQs</div>
+  <h2 class="faqbivouacs-title">Frequently Asked Questions</h2>
+  <p class="faqbivouacs-sub">Answers about our Sahara bivouac camps, camel treks, inclusions, and practical tips for your Trek Desert Morocco experience.</p>
+
+  <div class="faqbivouacs-grid">
+    <!-- LEFT: search + accordion -->
+    <div>
+      <div class="faqbivouacs-search">
+        <input id="faqbivouacsSearch" type="search" placeholder="Search questions… (e.g., luggage, shower, pickup, child)" />
+      </div>
+
+      <div class="faqbivouacs-accordion" id="faqbivouacsAccordion">
+        <!-- FAQ 1 -->
+        <div class="faqbivouacs-item open">
+          <button class="faqbivouacs-btn" aria-expanded="true">
+            <span>How do I book a bivouac night or package?</span>
+            <span class="faqbivouacs-icon"></span>
+          </button>
+          <div class="faqbivouacs-panel" style="max-height:160px;">
+            <div class="faqbivouacs-panel-inner">
+              Reserve directly on our site or via Booking/WhatsApp. We confirm within a few hours. A small deposit secures your date; the balance is paid on arrival (cash, card in Merzouga, or bank transfer in advance).
+            </div>
+          </div>
+        </div>
+        <!-- FAQ 2 -->
+        <div class="faqbivouacs-item">
+          <button class="faqbivouacs-btn" aria-expanded="false">
+            <span>What’s included in the bivouac?</span>
+            <span class="faqbivouacs-icon"></span>
+          </button>
+          <div class="faqbivouacs-panel">
+            <div class="faqbivouacs-panel-inner">
+              Private tent (standard or luxury), dinner & breakfast, evening campfire (weather-permitting), mint tea, sand-boarding, and sunrise dunes walk. Transfers by 4×4 or camel from the meeting point are available—see your package.
+            </div>
+          </div>
+        </div>
+        <!-- FAQ 3 -->
+        <div class="faqbivouacs-item">
+          <button class="faqbivouacs-btn" aria-expanded="false">
+            <span>Private vs shared tents—what’s the difference?</span>
+            <span class="faqbivouacs-icon"></span>
+          </button>
+          <div class="faqbivouacs-panel">
+            <div class="faqbivouacs-panel-inner">
+              All tents are private unless you request a shared option. Luxury tents feature en-suite bathroom and king/queen beds. Standard tents use shared, clean facilities a short walk away.
+            </div>
+          </div>
+        </div>
+        <!-- FAQ 4 -->
+        <div class="faqbivouacs-item">
+          <button class="faqbivouacs-btn" aria-expanded="false">
+            <span>Family-friendly? Can children join the camel trek?</span>
+            <span class="faqbivouacs-icon"></span>
+          </button>
+          <div class="faqbivouacs-panel">
+            <div class="faqbivouacs-panel-inner">
+              Yes! We welcome families. Children under 6 should ride with an adult or take 4×4 transfer. We can provide extra beds and earlier dinner times on request.
+            </div>
+          </div>
+        </div>
+        <!-- FAQ 5 -->
+        <div class="faqbivouacs-item">
+          <button class="faqbivouacs-btn" aria-expanded="false">
+            <span>What should I pack for the desert?</span>
+            <span class="faqbivouacs-icon"></span>
+          </button>
+          <div class="faqbivouacs-panel">
+            <div class="faqbivouacs-panel-inner">
+              Closed shoes, warm layers (nights can be cold Oct–Mar), hat/scarf, sunscreen, sunglasses, reusable water bottle, small backpack. We’ll store your suitcase at the meeting point.
+            </div>
+          </div>
+        </div>
+        <!-- FAQ 6 -->
+        <div class="faqbivouacs-item">
+          <button class="faqbivouacs-btn" aria-expanded="false">
+            <span>Do you cater for vegetarians, vegan, or allergies?</span>
+            <span class="faqbivouacs-icon"></span>
+          </button>
+          <div class="faqbivouacs-panel">
+            <div class="faqbivouacs-panel-inner">
+              Of course—please tell us in advance. We regularly cook vegetarian and gluten-free meals. Severe allergies: we’ll share ingredients and adapt the menu.
+            </div>
+          </div>
+        </div>
+        <!-- FAQ 7 -->
+        <div class="faqbivouacs-item">
+          <button class="faqbivouacs-btn" aria-expanded="false">
+            <span>Bathrooms, showers & electricity at the camp?</span>
+            <span class="faqbivouacs-icon"></span>
+          </button>
+          <div class="faqbivouacs-panel">
+            <div class="faqbivouacs-panel-inner">
+              Luxury tents include private en-suite with hot shower and WC. Standard camps offer clean shared facilities. Solar power is available for lighting and phone charging (bring a power bank just in case).
+            </div>
+          </div>
+        </div>
+        <!-- FAQ 8 -->
+        <div class="faqbivouacs-item">
+          <button class="faqbivouacs-btn" aria-expanded="false">
+            <span>Where is the pickup point and at what time?</span>
+            <span class="faqbivouacs-icon"></span>
+          </button>
+          <div class="faqbivouacs-panel">
+            <div class="faqbivouacs-panel-inner">
+              We meet in Merzouga/Erg Chebbi 1–2 hours before sunset. You can leave your car safely, then ride camel or 4×4 to the camp. Private transfers from Erfoud, Rissani, or desert hotels can be arranged.
+            </div>
+          </div>
+        </div>
+        <!-- FAQ 9 -->
+        <div class="faqbivouacs-item">
+          <button class="faqbivouacs-btn" aria-expanded="false">
+            <span>Change or cancel—what is your policy?</span>
+            <span class="faqbivouacs-icon"></span>
+          </button>
+          <div class="faqbivouacs-panel">
+            <div class="faqbivouacs-panel-inner">
+              Free date change subject to availability. Full refund up to 72h before arrival; 50% within 72–24h; no-show is non-refundable. If weather makes the trek unsafe, we offer alternatives or a full refund.
+            </div>
+          </div>
+        </div>
+        <!-- FAQ 10 -->
+        <div class="faqbivouacs-item">
+          <button class="faqbivouacs-btn" aria-expanded="false">
+            <span>Is the camel trek comfortable and safe?</span>
+            <span class="faqbivouacs-icon"></span>
+          </button>
+          <div class="faqbivouacs-panel">
+            <div class="faqbivouacs-panel-inner">
+              Our camels are well cared for and the route is paced and guided. Helmets are available on request. If you prefer not to ride, a 4×4 transfer reaches the camp by dunes track.
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- RIGHT: help card -->
+    <aside class="faqbivouacs-card" aria-label="Need more help">
+      <span class="faqbivouacs-emoji">💬</span>
+      <h4>You have different questions?</h4>
+      <p>Send us your dates and group size—we’ll reply with the best bivouac option and price within a few hours.</p>
+      <a class="faqbivouacs-btnlink" href="https://wa.me/212661437098" target="_blank" rel="noopener">Contact us</a>
+    </aside>
+  </div>
+
+  <!-- Bottom CTA -->
+  <div class="faqbivouacs-cta">
+    <h3>Ready to Explore? Let’s Chat About Your Dream Desert Trip</h3>
+    <p>Tell us your travel window and comfort level (standard or luxury). We’ll craft a Sahara night you’ll never forget.</p>
+    <a class="faqbivouacs-plan" href="https://trekdesertmorocco.com/contact-desert-maroc/">Plan your trip</a>
+  </div>
+</section>
+<script>
+(function(){
+  const counters = document.querySelectorAll('.count');
+  function animateCount(el){
+    const target = Number(el.getAttribute('data-target')) || 0;
+    const suffix = el.getAttribute('data-suffix') || '';
+    const duration = 1400;
+    const start = performance.now();
+    function tick(now){
+      const p = Math.min(1, (now - start)/duration);
+      const eased = 1 - Math.pow(1 - p, 3);
+      const current = Math.round(target * 1000 * eased)/1000;
+      el.textContent = (current % 1 === 0) ? current.toFixed(0) : current.toFixed(1);
+      el.parentElement.querySelector('.suffix').textContent = suffix;
+      if(p < 1) requestAnimationFrame(tick);
+      else el.textContent = target.toLocaleString();
+    }
+    requestAnimationFrame(tick);
+  }
+  const obs = new IntersectionObserver((entries, observer)=>{
+    entries.forEach(entry=>{
+      if(entry.isIntersecting){
+        animateCount(entry.target);
+        observer.unobserve(entry.target);
+      }
+    });
+  }, {threshold: 0.35});
+  counters.forEach(c=>obs.observe(c));
+})();
+/* Accordion open/close */
+document.querySelectorAll('.faqbivouacs-btn').forEach(btn=>{
+  btn.addEventListener('click', ()=>{
+    const item = btn.parentElement;
+    const panel = item.querySelector('.faqbivouacs-panel');
+    const open = item.classList.toggle('open');
+    btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+    panel.style.maxHeight = open ? (panel.scrollHeight + 'px') : '0px';
+  });
+});
+
+/* Search/filter */
+const faqbivouacsSearchInput = document.getElementById('faqbivouacsSearch');
+const faqbivouacsItems = Array.from(document.querySelectorAll('.faqbivouacs-item'));
+faqbivouacsSearchInput.addEventListener('input', e=>{
+  const q = e.target.value.trim().toLowerCase();
+  faqbivouacsItems.forEach(it=>{
+    const text = it.innerText.toLowerCase();
+    it.style.display = text.includes(q) ? '' : 'none';
+  });
+});
+</script>
+</body>
+</html>
+
